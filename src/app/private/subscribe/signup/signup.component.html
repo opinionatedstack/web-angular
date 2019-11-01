@@ -4,6 +4,10 @@
     <mat-card-subtitle>Accettiamo sia Carta di Credito che Bonifico</mat-card-subtitle>
     <mat-card-subtitle>Il processo e Semplice e Rapido</mat-card-subtitle>
 
+    <div id="loading" *ngIf="loading > 0">
+      <app-loading></app-loading>
+    </div>
+
     <div fxLayout="row" fxLayoutAlign="space-around">
       <mat-horizontal-stepper fxFlex="85%" fxFlex.lt-sm="95%" linear="true" #stepper>
 
