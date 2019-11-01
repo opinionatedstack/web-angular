@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {StripePaymentsService} from '../../../services/stripe-payments/stripe-payments.service';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { StripePaymentsService } from '../../../services/stripe-payments/stripe-payments.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-subscription-detail',
@@ -12,6 +13,7 @@ export class SubscriptionDetailComponent implements OnInit {
   subscription: any;
 
   constructor(private stripe: StripePaymentsService,
+              private router: Router,
               private snackMessage: MatSnackBar) { }
 
   ngOnInit() {
@@ -39,6 +41,10 @@ export class SubscriptionDetailComponent implements OnInit {
       }, e => {
         this.snackMessage.open('Error getting subscription', 'x',{verticalPosition: 'top'});
       });
+  }
+
+  upgradeSubscription() {
+    this.router.navigate(['/private/signup', this.stripeSubscriptionId]);
   }
 
 }
