@@ -10,6 +10,8 @@ events {
 
 http {
 
+  ssl_password_file /usr/ssl/priv/private-key-pwds.txt;
+
   upstream payments-node {
       server payments:3001;
   }
