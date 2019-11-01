@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { SendMailService } from './../../services/send-mail/send-mail.service';
+import { environment } from './../../../environments/environment';
 
 @Component({
   selector: 'app-contact-us',
@@ -18,6 +19,7 @@ export class ContactUsComponent implements OnInit {
     country: [''],
     comment: ['']
   };
+  env = environment;
 
   constructor(private fb: FormBuilder, private mailer: SendMailService ) {
     this.salesForm = this.fb.group(this.salesFormEmptyData);
