@@ -1,50 +1,70 @@
 <div fxLayout="row" fxLayoutAlign="space-around">
-  <div fxFlex="50%" fxFlex.lt-sm="80%">
-    <mat-card class="full-width-remove api-cards-remove">
-      <mat-card-title i18n="public home title|An introduction title for the public home@@public home title">Public Home Page</mat-card-title>
-      <mat-card-subtitle>The Mean-asStack: An opinionated stack for web and mobile apps</mat-card-subtitle>
+  <div fxFlex="50%" fxFlex.lt-lg="80%" fxFlex.lt-md="95%">
+    <div class="ops-card">
+      <h2>Public Home Page - How to Try the Framework</h2>
+      <h5>The Mean-asStack: An opinionated MEAN stack for web and mobile apps</h5>
+      <h6>Try the secure API <a href="/public/home#try-it">below</a>.</h6>
+      <ul>
+        <li>Create two new users. Both will be assigned Admin roles (to enable the demo).</li>
+        <li>When logged in as one of the two users, enter User admin and find the other user.</li>
+        <li>Remove the admin role of the second user.</li>
+        <li>The admin user will have access to all pages and most REST calls (one has permissions not granted to anyone).</li>
+        <li>Log out and log in as the non-admin test user.</li>
+        <li>This user will have access to fewer pages, and fewer of the REST calls will work.</li>
+        <li>With this non-admin user, subscribe to the service using the test credit card 4242 4242 4242 4242.</li>
+        <li>User will have access to subcription only features.</li>
+      </ul>
 
-      <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-between">
-        <div fxFlex="22%" fxFlexAlign="center"><img class="comp-logo" src="/assets/public/opstack/mongodb/mongodb.png"/></div>
-        <div fxFlex="22%" fxFlexAlign="center"><img class="comp-logo" src="/assets/public/opstack/express/express-facebook-share.png"/></div>
-        <div fxFlex="22%" fxFlexAlign="center"><img class="comp-logo" src="/assets/public/opstack/angular/angular.png"/></div>
-        <div fxFlex="22%" fxFlexAlign="center"><img class="comp-logo" src="/assets/public/opstack/nodejs/nodejs-new-pantone-black.png"/></div>
-      </div>
+    </div>
 
-      <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around">
-        <div fxFlex="25%" fxFlexAlign="center"><img class="comp-logo" src="/assets/public/opstack/auth0/Auth0-Logo-Light-BG.png"/></div>
-        <div fxFlex="25%" fxFlexAlign="center"><img class="comp-logo" src="/assets/public/opstack/stripe/Stripe-logo-slate-lg.png"/></div>
-      </div>
+    <mat-card class="">
+      <mat-card-title>What the Framework Provides</mat-card-title>
+
+      <ul>
+        <li>Working web and REST API framework.</li>
+        <li>Working mobile application with code reuse.</li>
+        <li>Multi-lingual translations.</li>
+        <li>Secure endpoints with Authentication control and Authorization control.</li>
+        <li>User management from Auth0, providing proprietary, social, and corporate (LDAP) logins.</li>
+        <li>Integrated role management from Auth0.</li>
+        <li>Payment and subscription management from Stripe.</li>
+        <li>Integration with Google Tag Manager for Google Analytics support.</li>
+        <li>Support for Dev/QA/Prod environments.</li>
+        <li>Deployment tools for AWS Elastic Beanstalk and Docker-Compose.</li>
+        <li>Jenkins and Travis files for your favorite CI tools. (coming soon)</li>
+        <li>Open source - fork it and go. Or stay connected for optional updates.</li>
+      </ul>
+
     </mat-card>
   </div>
 </div>
 
-<div fxLayout="row" fxLayoutAlign="center">
+<div id="try-it" fxLayout="row" fxLayoutAlign="center">
   <button id="dashboard-button" fxFlex="0 0 auto" mat-raised-button color="primary" (click)="loadAll()">Reload All Rest Calls</button>
 </div>
 
 <div fxLayout="row wrap" fxLayoutAlign="space-around" fxLayout.lt-sm="column">
 
-  <div fxFlex="35%" fxFlex.lt-sm="80%">
-    <mat-card class="full-width-remove " >
-      <mat-card-title>
+  <div fxFlex="35%" fxFlex.lt-lg="40%" fxFlex.lt-md="45%" fxFlex.lt-sm="95%">
+    <div class="ops-card">
+      <h3>
         <div fxLayout="row" fxLayoutAlign="space-between">
-          <div fxFlex="0 0 auto" >
+          <div fxFlex="0 1 auto" >
             1: Public Get Test
           </div>
           <div fxFlex="0 0 auto" >
             <button mat-raised-button color="primary" (click)="publicGet()">Try me!</button>
           </div>
         </div>
-      </mat-card-title>
+      </h3>
 
-      <mat-card-subtitle>
+      <div>
         <div fxLayout="row" fxLayoutAlign="start">
           <div fxFlex="0 0 auto">
             Any user can call this endpoint.
           </div>
         </div>
-      </mat-card-subtitle>
+      </div>
 
       <div *ngIf="publicGetResult && publicGetResult.status !== 'loading'" [ngClass]="getClassFromStatus(publicGetResult)">
         <pre class="results-display">{{ publicGetResult | json }}</pre>
@@ -60,12 +80,12 @@
       <div>Test this endpoint from Postman:</div>
       <div>GET {{getDisplayURL(env.restServiceURL + '/public')}}</div>
       <div>The endpoint is public and should respond with JSON.</div>
-    </mat-card>
+    </div>
   </div>
 
-  <div fxFlex="35%" fxFlex.lt-sm="80%">
-    <mat-card class="full-width-remove " >
-      <mat-card-title>
+  <div fxFlex="35%" fxFlex.lt-lg="40%" fxFlex.lt-md="45%" fxFlex.lt-sm="95%">
+    <div  class="ops-card">
+      <h3>
         <div fxLayout="row" fxLayoutAlign="space-between">
           <div fxFlex="0 0 auto" >
             2: Public POST Test
@@ -74,10 +94,10 @@
             <button mat-raised-button color="primary" (click)="publicPost()">Try me!</button>
           </div>
         </div>
-      </mat-card-title>
+      </h3>
 
 
-      <mat-card-subtitle>
+      <div>
         <div fxLayout="row" fxLayoutAlign="start">
           <div fxFlex="0 0 auto">
             Any user can call this endpoint.
@@ -90,7 +110,7 @@
             </mat-form-field>
           </div>
         </div>
-      </mat-card-subtitle>
+      </div>
 
       <div *ngIf="publicPostResult && publicPostResult.status !== 'loading'" [ngClass]="getClassFromStatus(publicPostResult)">
         <pre class="results-display">{{ publicPostResult |json }}</pre>
@@ -106,12 +126,12 @@
       <div>Test this endpoint from Postman:</div>
       <div>POST {{getDisplayURL(env.restServiceURL + '/public')}}</div>
       <div>The endpoint is public and should echo your JSON body.</div>
-    </mat-card>
+    </div>
   </div>
 
-  <div fxFlex="35%" fxFlex.lt-sm="80%">
-    <mat-card class="full-width-remove " >
-      <mat-card-title>
+  <div fxFlex="35%" fxFlex.lt-lg="40%" fxFlex.lt-md="45%" fxFlex.lt-sm="95%">
+    <div  class="ops-card">
+      <h3>
 
         <div fxLayout="row" fxLayoutAlign="space-between">
           <div fxFlex="0 0 auto" >
@@ -122,15 +142,15 @@
           </div>
         </div>
 
-      </mat-card-title>
+      </h3>
 
-      <mat-card-subtitle>
+      <div>
         <div fxLayout="row" fxLayoutAlign="start">
           <div fxFlex="0 0 auto">
             Only authenticated users can call this endpoint.
           </div>
         </div>
-      </mat-card-subtitle>
+      </div>
 
       <div *ngIf="privateGetResult && privateGetResult.status !== 'loading'" [ngClass]="getClassFromStatus(privateGetResult)">
         <pre class="results-display">{{ privateGetResult | json }}</pre>
@@ -147,12 +167,12 @@
       <div>Test this endpoint from Postman:</div>
       <div>GET {{getDisplayURL(env.restServiceURL + '/private')}}</div>
       <div>The endpoint is private and will reject requests without a valid JWT token.</div>
-    </mat-card>
+    </div>
   </div>
 
-  <div fxFlex="35%" fxFlex.lt-sm="80%">
-    <mat-card class="full-width-remove " >
-      <mat-card-title>
+  <div fxFlex="35%" fxFlex.lt-lg="40%" fxFlex.lt-md="45%" fxFlex.lt-sm="95%">
+    <div class="ops-card">
+      <h3>
 
         <div fxLayout="row" fxLayoutAlign="space-between">
           <div fxFlex="0 0 auto" >
@@ -163,9 +183,9 @@
           </div>
         </div>
 
-      </mat-card-title>
+      </h3>
 
-      <mat-card-subtitle>
+      <div>
         <div fxLayout="row" fxLayoutAlign="start">
           <div fxFlex="0 0 auto">
             Only authentedated users can call this endpoint.
@@ -178,7 +198,7 @@
             </mat-form-field>
           </div>
         </div>
-      </mat-card-subtitle>
+      </div>
 
       <div *ngIf="privatePostResult && privatePostResult.status !== 'loading'" [ngClass]="getClassFromStatus(privatePostResult)">
         <pre class="results-display">{{ privatePostResult | json }}</pre>
@@ -195,12 +215,12 @@
       <div>Test this endpoint from Postman:</div>
       <div>POST {{getDisplayURL(env.restServiceURL + '/private')}}</div>
       <div>The endpoint is private and will reject requests without a valid JWT token.</div>
-    </mat-card>
+    </div>
   </div>
 
-  <div fxFlex="35%" fxFlex.lt-sm="80%">
-    <mat-card class="full-width-remove " >
-      <mat-card-title>
+  <div fxFlex="35%" fxFlex.lt-lg="40%" fxFlex.lt-md="45%" fxFlex.lt-sm="95%">
+    <div class="ops-card">
+      <h3>
 
         <div fxLayout="row" fxLayoutAlign="space-between">
           <div fxFlex="0 0 auto" >
@@ -211,8 +231,8 @@
           </div>
         </div>
 
-      </mat-card-title>
-      <mat-card-subtitle>
+      </h3>
+      <div>
         <div fxLayout="row" fxLayoutAlign="start">
           <div fxFlex="0 0 auto">
             Only authorized users (Admin role) can call this endpoint.
@@ -225,7 +245,7 @@
             </mat-form-field>
           </div>
         </div>
-      </mat-card-subtitle>
+      </div>
       <div *ngIf="permissionedAdminPostResult && permissionedAdminPostResult.status !== 'loading'" [ngClass]="getClassFromStatus(permissionedAdminPostResult)">
         <pre class="results-display">{{ permissionedAdminPostResult | json }}</pre>
       </div>
@@ -242,12 +262,12 @@
       <div>Test this endpoint from Postman:</div>
       <div>POST {{getDisplayURL(env.restServiceURL + '/private/')}}</div>
       <div>The endpoint is private and will reject requests without a valid JWT token.</div>
-    </mat-card>
+    </div>
   </div>
 
-  <div fxFlex="35%" fxFlex.lt-sm="80%">
-    <mat-card class="full-width-remove " >
-      <mat-card-title>
+  <div fxFlex="35%" fxFlex.lt-lg="40%" fxFlex.lt-md="45%" fxFlex.lt-sm="95%">
+    <div class="ops-card">
+      <h3>
 
         <div fxLayout="row" fxLayoutAlign="space-between">
           <div fxFlex="0 0 auto" >
@@ -258,8 +278,8 @@
           </div>
         </div>
 
-      </mat-card-title>
-      <mat-card-subtitle>
+      </h3>
+      <div>
         <div fxLayout="row" fxLayoutAlign="start">
           <div fxFlex="0 0 auto">
             Only authorized users can call this endpoint, no such roles have permission in this demo and the call will always fail.
@@ -272,7 +292,7 @@
             </mat-form-field>
           </div>
         </div>
-      </mat-card-subtitle>
+      </div>
 
       <div *ngIf="permissionedNeverPostResult && permissionedNeverPostResult.status !== 'loading'" [ngClass]="getClassFromStatus(permissionedNeverPostResult)">
         <pre class="results-display">{{ permissionedNeverPostResult | json }}</pre>
@@ -290,6 +310,27 @@
       <div>Test this endpoint from Postman:</div>
       <div>POST {{getDisplayURL(env.restServiceURL + '/private/')}}</div>
       <div>The endpoint is private and will reject requests without a valid JWT token.</div>
-    </mat-card>
+    </div>
+  </div>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="space-around">
+  <div fxFlex="50%" fxFlex.lt-lg="80%" fxFlex.lt-md="95%">
+    <div class="ops-card">
+      <h4>Built on World Class Tools</h4>
+      <h5>The Mean-asStack is build on MongoDb, Nodejs, Express, Angular, Nativescript, Auth0.com and Stripe.com</h5>
+
+      <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-between">
+        <div fxFlex="22%" fxFlexAlign="center"><img class="comp-logo" src="/assets/public/opstack/mongodb/mongodb.png"/></div>
+        <div fxFlex="22%" fxFlexAlign="center"><img class="comp-logo" src="/assets/public/opstack/express/express-facebook-share.png"/></div>
+        <div fxFlex="22%" fxFlexAlign="center"><img class="comp-logo" src="/assets/public/opstack/angular/angular.png"/></div>
+        <div fxFlex="22%" fxFlexAlign="center"><img class="comp-logo" src="/assets/public/opstack/nodejs/nodejs-new-pantone-black.png"/></div>
+      </div>
+
+      <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around">
+        <div fxFlex="25%" fxFlexAlign="center"><img class="comp-logo" src="/assets/public/opstack/auth0/Auth0-Logo-Light-BG.png"/></div>
+        <div fxFlex="25%" fxFlexAlign="center"><img class="comp-logo" src="/assets/public/opstack/stripe/Stripe-logo-slate-lg.png"/></div>
+      </div>
+    </div>
   </div>
 </div>
