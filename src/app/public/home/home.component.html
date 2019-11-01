@@ -60,7 +60,7 @@
 
       <div>
         <div fxLayout="row" fxLayoutAlign="start">
-          <div fxFlex="0 0 auto">
+          <div fxFlex="0 1 auto">
             Any user can call this endpoint.
           </div>
         </div>
@@ -87,7 +87,7 @@
     <div  class="large-rounded-card">
       <h3>
         <div fxLayout="row" fxLayoutAlign="space-between">
-          <div fxFlex="0 0 auto" >
+          <div fxFlex="0 1 auto" >
             2: Public POST Test
           </div>
           <div fxFlex="0 0 auto" >
@@ -99,7 +99,7 @@
 
       <div>
         <div fxLayout="row" fxLayoutAlign="start">
-          <div fxFlex="0 0 auto">
+          <div fxFlex="0 1 auto">
             Any user can call this endpoint.
           </div>
         </div>
@@ -134,7 +134,7 @@
       <h3>
 
         <div fxLayout="row" fxLayoutAlign="space-between">
-          <div fxFlex="0 0 auto" >
+          <div fxFlex="0 1 auto" >
             3: Private Get Test
           </div>
           <div fxFlex="0 0 auto" >
@@ -146,7 +146,7 @@
 
       <div>
         <div fxLayout="row" fxLayoutAlign="start">
-          <div fxFlex="0 0 auto">
+          <div fxFlex="0 1 auto">
             Only authenticated users can call this endpoint.
           </div>
         </div>
@@ -175,7 +175,7 @@
       <h3>
 
         <div fxLayout="row" fxLayoutAlign="space-between">
-          <div fxFlex="0 0 auto" >
+          <div fxFlex="0 1 auto" >
             4: Private POST Test
           </div>
           <div fxFlex="0 0 auto" >
@@ -187,8 +187,8 @@
 
       <div>
         <div fxLayout="row" fxLayoutAlign="start">
-          <div fxFlex="0 0 auto">
-            Only authentedated users can call this endpoint.
+          <div fxFlex="0 1 auto">
+            Only authenticated users can call this endpoint.
           </div>
         </div>
         <div fxLayout="row" fxLayoutAlign="start">
@@ -223,7 +223,7 @@
       <h3>
 
         <div fxLayout="row" fxLayoutAlign="space-between">
-          <div fxFlex="0 0 auto" >
+          <div fxFlex="0 1 auto" >
             5: Permissioned POST Test
           </div>
           <div fxFlex="0 0 auto" >
@@ -234,7 +234,7 @@
       </h3>
       <div>
         <div fxLayout="row" fxLayoutAlign="start">
-          <div fxFlex="0 0 auto">
+          <div fxFlex="0 1 auto">
             Only authorized users (Admin role) can call this endpoint.
           </div>
         </div>
@@ -270,7 +270,7 @@
       <h3>
 
         <div fxLayout="row" fxLayoutAlign="space-between">
-          <div fxFlex="0 0 auto" >
+          <div fxFlex="0 1 auto" >
             6: Never Permissioned POST Test
           </div>
           <div fxFlex="0 0 auto" >
@@ -281,12 +281,12 @@
       </h3>
       <div>
         <div fxLayout="row" fxLayoutAlign="start">
-          <div fxFlex="0 0 auto">
+          <div fxFlex="0 1 auto">
             Only authorized users can call this endpoint, no such roles have permission in this demo and the call will always fail.
           </div>
         </div>
         <div fxLayout="row" fxLayoutAlign="start">
-          <div fxFlex="0 0 auto">
+          <div fxFlex="0 1 auto">
             <mat-form-field>
               <input matInput placeholder="Sample data" [(ngModel)]="permissionedNeverPostMessage"/>
             </mat-form-field>
