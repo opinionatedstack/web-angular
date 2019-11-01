@@ -14,9 +14,12 @@ import { AuthService } from '../../../services/auth/auth.service';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
+  env = environment;
   tosFormGroup: FormGroup;
   dataHandlingFormGroup: FormGroup;
   productFormGroup: FormGroup;
+
+  productData: any;
 
   dataHandlingAgreement: string;
   tosAgreement: string;
@@ -34,6 +37,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
     this.getAgreements();
+    this.getProductInfo();
 
     const tosShape = {
       termsOfServiceText: [this.tosAgreement],
@@ -88,6 +92,15 @@ export class SignupComponent implements OnInit {
 
   getTermsOfServiceText() {
     return this.tosAgreement;
+  }
+
+  getProductInfo() {
+    this.stripe.getBillingProductsPlans({size: 100})
+      .subscribe ( r => {
+        this.productData = r;
+      }, e => {
+        this.snackMessage.open('Error loading product data', null,{duration:  environment.snackBarDuration});
+      });
   }
 
   async initiateStripe() {
@@ -175,6 +188,15 @@ export class SignupComponent implements OnInit {
       result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     return result;
+  }
+
+  getDisplayOrderedProducts() {
+    // return this.productData;
+    return this.productData.sort( (a, b) => { return  parseInt(a.metadata.displayOrder) - parseInt(b.metadata.displayOrder); } );
+  }
+
+  getDisplayOrderedPlans(product) {
+    return product.plans.sort((a, b) => { return  parseInt(a.metadata.displayOrder) - parseInt(b.metadata.displayOrder); } );
   }
 
 }

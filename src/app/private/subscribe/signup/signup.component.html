@@ -1,6 +1,6 @@
 <div fxLayout="row" fxLayoutAlign="space-around">
   <mat-card fxFlex="75%" fxFlex.lt-sm="95%">
-    <mat-card-title>Abbonati a ParkinsonCare</mat-card-title>
+    <mat-card-title>Abbonati a {{env.companyName}}</mat-card-title>
     <mat-card-subtitle>Accettiamo sia Carta di Credito che Bonifico</mat-card-subtitle>
     <mat-card-subtitle>Il processo e Semplice e Rapido</mat-card-subtitle>
     <div fxLayout="row" fxLayoutAlign="space-around">
@@ -100,6 +100,22 @@
                   <mat-card-title>Weekly Subscription</mat-card-title>
 
                   <mat-radio-button value="weekly-subscription">€5.00 per week</mat-radio-button>
+                </mat-card>
+              </div>
+
+              <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-around">
+                <mat-card class="stepper-selection-cards" fxFlex="0 0 auto" *ngFor="let product of getDisplayOrderedProducts()" >
+                  <mat-card-title>{{product.name}}</mat-card-title>
+
+                  <div fxLayout="column">
+                    <mat-card fxFlex *ngFor="let plan of getDisplayOrderedPlans(product)">
+                      {{plan.nickname}}<br>
+                      <mat-radio-button value="{{plan.id}}">
+                        {{plan.amount/100|currency:plan.currency.toUpperCase():'symbol'}}
+                      </mat-radio-button>
+                    </mat-card>
+                  </div>
+
                 </mat-card>
               </div>
             </mat-radio-group>
