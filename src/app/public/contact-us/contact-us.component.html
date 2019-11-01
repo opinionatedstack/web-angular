@@ -1,14 +1,14 @@
 <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around">
   <div fxFlex="50%" fxFlex.lt-sm="100%">
-    <mat-card>
-      <mat-card-title>
+    <div class="large-rounded-card">
+      <h2>
         Contact Us...
-      </mat-card-title>
-      <mat-card-content>
+      </h2>
+      <div>
         To learn more about ComplyFS and the services we offer, write us below and we will schedule a call. Please include your location to allow us to assign the appropriate sales experts.
-      </mat-card-content>
-    </mat-card>
-    <mat-card>
+      </div>
+    </div>
+    <div class="large-rounded-card">
       <form [formGroup]="salesForm" novalidate (ngSubmit)="onSubmit()" class="sales-form">
         <div fxLayout="column">
           <div fxFlex>
@@ -52,21 +52,21 @@
     </mat-card>
   </div>
   <div fxFlex="30%" fxFlex.lt-sm="100%">
-    <mat-card>
-      <strong>ComplyFS</strong><br><br>
+    <div class="large-rounded-card">
+      <strong>{{env.companyName}}</strong><br><br>
       Contact us at:<br>
-      <a href="mailto:sales@complyfs.com">sales@ComplyFS.com</a><br><br>
+      <a href="mailto:sales@complyfs.com">{{env.contactUsEmail}}</a><br><br>
       <address>
         <strong>US:</strong><br>
-        475 Park Avenue South, 22nd Floor<br>
+        10 Main St., 22nd Floor<br>
         New York, NY 10016<br>
-        <abbr title="Phone">Tel:</abbr> +1 (212) 913-9510
+        <abbr title="Phone">Tel:</abbr> +1 (900) 212-1234
       </address>
       <address>
         <strong>Europe:</strong><br>
-        Via Copernico, 38<br>
-        Milano, Italy<br>
-        <abbr title="Phone">Tel:</abbr> +39 333 146 5393
+        10 Fulham St<br>
+        London, UK<br>
+        <abbr title="Phone">Tel:</abbr> +44 333 112 3321
       </address>
     </mat-card>
   </div>
