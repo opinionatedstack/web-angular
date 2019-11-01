@@ -43,6 +43,7 @@ import { PlanDetailComponent } from './components/payments/plan-detail/plan-deta
 import { ProductDetailComponent } from './components/payments/product-detail/product-detail.component';
 import { CustomerDetailComponent } from './components/payments/customer-detail/customer-detail.component';
 import { InvoiceHistoryComponent } from './components/payments/invoice-history/invoice-history.component';
+import { LoadingComponent } from './components/loading/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { InvoiceHistoryComponent } from './components/payments/invoice-history/i
     ProductDetailComponent,
     CustomerDetailComponent,
     InvoiceHistoryComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,

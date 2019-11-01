@@ -27,6 +27,8 @@ export class SignupComponent implements OnInit {
   // Stripe
   stripeSession: any;
 
+  loading = 0;
+
   constructor(private formBuilder: FormBuilder,
               private stripe: StripePaymentsService,
               private snackMessage: MatSnackBar,
@@ -57,6 +59,8 @@ export class SignupComponent implements OnInit {
   }
 
   getAgreements() {
+    this.loading += 1;
+
     const type1 = 'neuro-data-handling';
     const type2 = 'neuro-terms-of-service';
 
@@ -81,6 +85,7 @@ export class SignupComponent implements OnInit {
         };
         this.dataHandlingFormGroup = this.formBuilder.group( dataHandlingShape );
 
+        this.loading -= 1;
       },  e => {
         this.snackMessage.open('Error loading consent content', null,{duration:  environment.snackBarDuration});
       });
@@ -95,9 +100,11 @@ export class SignupComponent implements OnInit {
   }
 
   getProductInfo() {
+    this.loading += 1;
     this.stripe.getBillingProductsPlans({size: 100})
       .subscribe ( r => {
         this.productData = r;
+        this.loading -= 1;
       }, e => {
         this.snackMessage.open('Error loading product data', null,{duration:  environment.snackBarDuration});
       });
