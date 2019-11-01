@@ -6,52 +6,33 @@
 
         <button
           fxFlex="0 0 auto"
+          *ngIf="auth.loggedIn || (activeMediaQuery !== 'md' && activeMediaQuery !== 'lg')"
           type="button"
           aria-label="Toggle sidenav"
           mat-icon-button
           (click)="toggleMenus()"
-          *ngIf="((router.url.indexOf('/dashboard/') > -1) ||isHandset$ | async)"
         >
-          <!-- line 7 ngIf used to have "router.url.indexOf('/cfs/')===0) ||" -->
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
-        <!--<span routerLink="/public">-->
-        <!-- ngClass.lt-sm="{ 'logo':false, 'logoltsm': true}"  -->
-        <span fxFlex="0 0 auto" ><img routerLink="/public" class="logo" ngClass.lt-sm="logoltsm" src="./../assets/public/logo.png"></span>
+
+        <span fxFlex="0 0 auto" ><img routerLink="/public" class="logo" ngClass.lt-md="logoltsm" src="./../assets/public/logo.png"></span>
 
         <span fxFlex="0 0 auto" id="site-title" routerLink="/public">{{env.companyName}}</span>
-        <!--</span>-->
 
         <span fxFlex="0 0 auto" id="dev-warning" *ngIf="!env.production">Env: {{env.env}}</span>
 
       </div>
     </div>
     <div id="right-group" fxFlex="0 0 auto">
-      <div fxLayout="row" fxLayoutAlign="end center">
-        <span *ngIf="(isHandset$ | async) ? false : true">
+      <div fxLayout="row" fxLayoutAlign="end center" fxHide fxShow.gt-sm="true">
+        <span >
           <button fxFlex="0 0 auto" mat-button color="white" class="btnTextColor menuText" routerLink="/private">Dashboard</button>
           <button fxFlex="0 0 auto" mat-button color="white" class="btnTextColor menuText" routerLink="/private/signup">Signup</button>
 
           <button fxFlex="0 0 auto" mat-button color="white" class="btnTextColor menuText" routerLink="/public/contactus">Contact Sales</button>
 
-                  <!--
-                  <button fxFlex fxFlexAlign="end center" *ngIf="!auth.loggedIn" mat-button color="primary" class=" loginLogoutText btnTextColor menuText" [ngClass.lt-sm]="{ 'loginLogoutText':false, 'loginLogoutTextltsm': true}"(click)="auth.login()">Login</button>
-
-                  <button fxFlex fxFlexAlign="end center" *ngIf="auth.loggedIn" (click)="auth.logout();" mat-button color="black" class="float-right loginLogoutText  btnTextColor menuText" >Logout!</button>
-                  -->
-                  <!--
-                  <ul fxFlex fxFlexAlign="end center"  class="navbar-nav d-none d-md-block loginLogoutText">
-                    <li class="nav-item dropdown" ><fa-icon [icon]="faGlobe" class="mr-3"></fa-icon></li>
-                  </ul>
-                  -->
-
               <ul fxFlex="0 0 auto" class="navbar-nav d-none d-md-block loginLogoutText">
-                <!-- Login button: show if NOT authenticated
-                former classes on button
 
-                    id="qsLoginBtn"
-                    class="btn btn-primary btn-margin"
-                 -->
                 <li class="nav-item" *ngIf="auth.loggedIn === false">
                   <button
                     mat-raised-button
@@ -89,14 +70,14 @@
                       class="dropdown-item dropdown-profile"
                       *ngIf="profile"
                     >
-                      <fa-icon [icon]="faUser" class="mr-3"></fa-icon> Profile
+                      <mat-icon>person</mat-icon> Profile
                     </a>
                     <button
                       (click)="auth.logout()"
                       class="btn btn-link dropdown-item"
                       id="qsLogoutBtn"
                     >
-                      <fa-icon [icon]="faPowerOff" class="mr-3"></fa-icon> Log out
+                      <mat-icon>power_settings_new</mat-icon> Log out
                     </button>
                   </div>
                 </li>

@@ -4,8 +4,10 @@ COPY dist /usr/share/nginx/html
 
 COPY ./ssl/fullchain.crt /usr/ssl/pub/fullchain.crt
 COPY ./ssl/private.key /usr/ssl/priv/private.key
+COPY ./ssl/private-key-pwds.txt /usr/ssl/priv/private-key-pwds.txt
 
 RUN chmod 644 /usr/ssl/pub/*.crt \
-  && chmod 640 /usr/ssl/priv/*.key
+  && chmod 640 /usr/ssl/priv/*.key\
+  && chmod 640 /usr/ssl/priv/private-key-pwds.txt
 
 

@@ -70,4 +70,8 @@ export class StripePaymentsService {
   cancelSubscription(params: any): Observable < any > {
     return this.http.post(environment.stripe.stripeRestServiceUrl + '/cancelSubscription/', params);
   }
+
+  getBillingProductsPlans(params: any): Observable < any > {
+    return this.http.post(environment.stripe.stripeRestServiceUrl + '/getBillingProductsPlans/', params);
+  }
 }
